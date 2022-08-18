@@ -1,0 +1,22 @@
+<table class="table" ng-if="list.showTable()">
+    <thead>
+        <tr>    
+            <th>Name</th>
+            <th>ShortName</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in list.items">
+            <td class="items-text">{{item.name}}</td> 
+            <td class="items-text">{{item.short_name}}</td>
+            <td class="items-text">{{item.description}}</td>
+            <td><button ng-click="list.remove({index: $index});">Don't want this one!</button></td> 
+        </tr>
+        
+    </tbody>
+</table>
+<div class="error" ng-if="list.isFoodListEmpty()">
+    {{list.message}}
+</div>

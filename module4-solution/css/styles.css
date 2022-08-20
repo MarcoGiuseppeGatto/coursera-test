@@ -1,0 +1,41 @@
+body {
+  font-size: 1.5em;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.menu-items-div {
+    float: left;
+    width: 80%;
+    font-size: 0.8em;
+    margin-top: 4px;
+}
+
+.categories-div {
+    float: left;
+    width: 20%;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+.loading-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+li[ui-sref]:hover {
+  display: inline-block;
+  cursor: pointer;
+  border: solid black 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}

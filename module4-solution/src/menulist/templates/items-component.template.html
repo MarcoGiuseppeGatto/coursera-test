@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>ShortName</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in $ctrl.menuitems">
+            <td class="items-text">{{item.name}}</td>
+            <td class="items-text">{{item.short_name}}</td>
+            <td class="items-text">{{item.description}}</td>
+        </tr>
+    </tbody>
+</table>

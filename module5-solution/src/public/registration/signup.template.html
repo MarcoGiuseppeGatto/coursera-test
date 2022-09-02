@@ -1,0 +1,73 @@
+﻿<div class="container">
+    <h3>Sign Up for the newsletter</h3>
+    <form name='regForm' novalidate>
+        <input type="text" name="firstname" placeholder="First name" class="input-box"
+               ng-model="signupCtrl.user.first_name"
+               required>
+        <span ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
+            First name is mandatory
+        </span>
+
+        <br>
+
+        <input type="text" name="lastname" placeholder="Last name" class="input-box"
+               ng-model="signupCtrl.user.last_name"
+               required>
+        <span ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
+            Last name is mandatory
+        </span>
+
+        <br>
+
+        <input type="email" name="email" placeholder="Email address" class="input-box"
+               ng-model="signupCtrl.user.email"
+               required>
+        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+        </span>
+
+        <br>
+
+        <input type="text" name="menunumber" placeholder="Favorite Menu number (e.g. A3)" class="input-box"
+               ng-model="signupCtrl.user.menu_number"
+               ng-blur="signupCtrl.searchMenuItem()"
+               required>
+        <span ng-if="signupCtrl.preferredMenuName">
+            {{ signupCtrl.preferredMenuName }}
+        </span>
+        
+        <span ng-if="regForm.menunumber.$error.required && regForm.menunumber.$touched">
+            Menu number is mandatory
+        </span>
+        <span ng-if="signupCtrl.MessageForUser">
+            {{signupCtrl.MessageForUser}}
+        </span>
+
+        <br>
+
+        <input type="text" name="phone" placeholder="Phone in the format ###-###-####" class="input-box"
+               ng-model="signupCtrl.user.phone"
+               pattern="(\d{3})-(\d{3})-(\d{4})"
+               required>
+        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone number must be in the format ###-###-####.
+        </span>
+        <br>
+
+        
+
+        <button ng-disabled="regForm.$invalid || (!signupCtrl.preferredMenuName)"
+                ng-click="signupCtrl.submit()"
+                class="submit-button">
+            Submit
+        </button>
+        <span ng-if="(regForm.phone.$invalid || (!signupCtrl.preferredMenuName)) && regForm.firstname.$touched && regForm.lastname.$touched && regForm.email.$touched && regForm.menunumber.$touched && regForm.phone.$touched">
+            Before submitting please adjust the fields with validation message
+        </span>
+        <div class="info-message" ng-if="signupCtrl.completed">
+            Your information has been saved!
+        </div>
+
+        
+    </form>
+</div>

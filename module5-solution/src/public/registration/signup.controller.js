@@ -11,8 +11,17 @@ function SignupController(SignupService, MenuService) {
     signupCtrl.MessageForUser = "";
     signupCtrl.preferredMenuName = "";
  
-
-    signupCtrl.user = SignupService.getUser();
+    //Get saved data from a service
+    var saved_user = SignupService.getUser();
+       
+    signupCtrl.user = {
+                        first_name: saved_user.first_name,
+                        last_name: saved_user.last_name,
+                        email: saved_user.email,
+                        phone: saved_user.phone,
+                        menu_number: saved_user.menu_number,
+                        registration_completed: saved_user.registration_completed
+                      };
 
     //We make use of a service to store user's data
     signupCtrl.submit = function () {
